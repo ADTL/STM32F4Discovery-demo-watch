@@ -1,0 +1,18 @@
+STM32F407(STM32F4-DISCOVERY) - unconventional approach - use xprintf lib with spl lib project
+
+Common project files and base make rules.
+
+Libs:
+    ELMChan Xprintf
+	path - lib/xprintf
+    SPL(Standart Peripheral Library)
+	path - lib/std_periph
+    CMSIS
+	path - inc/base/stdint.h
+		inc/core_support/arm_common_tables.h
+		inc/core_support/arm_math.h
+		inc/core_support/core_cm4.h
+		inc/core_support/core_cm4_simd.h
+		inc/core_support/core_cmFunc.h
+		inc/core_support/core_cmInstr.h
+    

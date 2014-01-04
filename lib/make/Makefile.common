@@ -1,0 +1,35 @@
+#*-----------------------------------------------------------------------------
+#* Author: Boris Vinogradov(nis) : no111u3@gmail.com
+#* File: Makefile.common
+#* Type: Makefile
+#* Project: STM32F4D
+#* 2013
+#*-----------------------------------------------------------------------------
+# Compilator prefix
+CROSS_PREFIX=arm-softfloat-linux-gnueabi-
+# Compilators and utils
+CC=$(CROSS_PREFIX)gcc
+OBJCOPY=$(CROSS_PREFIX)objcopy
+SIZE=$(CROSS_PREFIX)size
+RANLIB=$(CROSS_PREFIX)ranlib
+AR=$(CROSS_PREFIX)ar
+# Paths
+LIBS_STM_PATH=$(ROOTDIR)/lib/std_periph
+# Platform
+PLATFORM=stm32f4xx
+# Primary compiler flags
+CFLAGS=-g -O2 -mlittle-endian -mthumb -ffreestanding -nostdlib -Wall
+CFLAGS+= -mcpu=cortex-m3 -DSTM32F4XX
+# Add global includes
+CFLAGS+= -I$(ROOTDIR)/inc
+CFLAGS+= -I$(ROOTDIR)/inc/base
+CFLAGS+= -I$(ROOTDIR)/inc/core_support
+CFLAGS+= -I$(ROOTDIR)/inc/device_support
+CFLAGS+= -I$(LIBS_STM_PATH)/inc
+# Linker flags
+LDFLAGS=-L.
+# Library paths
+LIBPATHS = -Llib/std_periph
+LIBPATHS+= -Llib/xprintf
+# Libraries to link
+LIBS = -lstdperiph -lxprintf
